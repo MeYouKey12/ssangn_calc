@@ -156,20 +156,10 @@ resetBtn.addEventListener('click', () => {
     updateUI();
 });
 
-// 외부 단어장(words.json) 파일 불러오기
-async function loadDictionary() {
-    try {
-        const response = await fetch('data/words.json');
-        const parsedWords = await response.json(); // JSON 데이터를 배열로 바로 변환
-        
-        // Set을 사용하여 중복된 단어를 자동으로 제거하고, 혹시 모를 오타를 위해 2글자인 단어만 필터링
-        fullDictionary = [...new Set(parsedWords)].filter(w => w.length === 2);
-        currentCandidates = [...fullDictionary];
-        updateUI();
-    } catch (error) {
-        console.error('단어장 파일을 불러오는데 실패했습니다.', error);
-        candidatesDiv.textContent = '단어장 파일을 불러오는데 실패했습니다. (로컬 파일 실행 보안 정책 문제일 수 있습니다.)';
-    }
-}
+// CommonNouns.js에서 불러온 nouns 배열 사용
+// Set을 사용하여 중복된 단어를 자동으로 제거하고, 2글자인 단어만 필터링
+fullDictionary = [...new Set(nouns)].filter(w => w.length === 2);
+currentCandidates = [...fullDictionary];
 
-loadDictionary();
+// 초기 화면 세팅
+updateUI();
