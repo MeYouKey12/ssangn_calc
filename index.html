@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>한국어 2글자 워들 계산기</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>한국어 워들 계산기 🧩</h1>
+        <p>2글자 단어와 받은 힌트를 입력하세요.</p>
+
+        <div class="input-section">
+            <input type="text" id="guessWord" placeholder="단어 입력 (예: 올해)" maxlength="2">
+            
+            <div class="hint-selectors">
+                <select id="hint1">
+                    <option value="🥕">🥕 (당연하죠)</option>
+                    <option value="🍄">🍄 (비슷해요)</option>
+                    <option value="🧄">🧄 (많을 거예요)</option>
+                    <option value="🍆">🍆 (가지고 있어요)</option>
+                    <option value="🍌">🍌 (반대로요)</option>
+                    <option value="🍎" selected>🍎 (사과를 받아주세요)</option>
+                </select>
+                <select id="hint2">
+                    <option value="🥕">🥕 (당연하죠)</option>
+                    <option value="🍄">🍄 (비슷해요)</option>
+                    <option value="🧄">🧄 (많을 거예요)</option>
+                    <option value="🍆">🍆 (가지고 있어요)</option>
+                    <option value="🍌">🍌 (반대로요)</option>
+                    <option value="🍎" selected>🍎 (사과를 받아주세요)</option>
+                </select>
+            </div>
+            
+            <button id="submitBtn">결과 추가 및 필터링</button>
+            <button id="resetBtn" class="secondary">초기화</button>
+        </div>
+
+        <div class="history-section">
+            <h3>입력 기록</h3>
+            <ul id="historyList"></ul>
+        </div>
+
+        <div class="result-section">
+            <h3>남은 후보 단어 (<span id="count">0</span>개)</h3>
+            <div id="candidates">단어를 입력하면 결과가 나타납니다.</div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
